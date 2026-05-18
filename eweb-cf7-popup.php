@@ -19,6 +19,17 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-eweb-github-updater.php';
+
+add_action( 'init', function() {
+    new EWEB_GitHub_Updater( array(
+        'owner'       => 'Yisus-Develop',
+        'repo'        => 'eweb-cf7-popup',
+        'plugin_file' => plugin_basename( __FILE__ ),
+        'version'     => '3.4.2',
+    ) );
+} );
+
 // Define EWEB_CF7_POPUP_FILE
 if ( ! defined( 'EWEB_CF7_POPUP_FILE' ) ) {
     define( 'EWEB_CF7_POPUP_FILE', __FILE__ );
